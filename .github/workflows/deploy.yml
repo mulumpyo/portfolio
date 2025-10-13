@@ -26,7 +26,7 @@ jobs:
       - name: Nuxt 빌드
         run: npm run build
 
-      - name: Cloudflare 퍼플리싱
+      - name: Cloudflare 퍼블리싱
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
