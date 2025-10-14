@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
+const fetchData = ref();
+
 onMounted(async () => {
-  const res = await axios.get('/api/helloWorld');
-  console.log(res);
+  const res = await axios.get('/api/posts');
+  fetchData.value = res;
 });
 
 </script>
@@ -13,5 +15,7 @@ onMounted(async () => {
   <div>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
+
+    {{ fetchData }}
   </div>
 </template>
