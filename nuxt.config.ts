@@ -11,4 +11,8 @@ export default defineNuxtConfig({
       nodeCompat: true,
     },
   },
+  runtimeConfig: {
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseSecretKey: process.env.SUPABASE_SECRET_KEY
+  }
 })
