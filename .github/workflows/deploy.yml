@@ -4,13 +4,11 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-    
       - name: Repository 체크아웃
         uses: actions/checkout@v3
 
