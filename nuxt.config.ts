@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'cloudflare_pages',
     rollupConfig: {
-      external: ['node:stream']
+      external: ['node:stream', 'node:url']
     },
     cloudflare: {
       deployConfig: true,
