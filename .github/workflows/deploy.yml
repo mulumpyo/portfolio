@@ -28,10 +28,10 @@ jobs:
           corepack prepare pnpm@latest --activate
 
       - name: 의존성 설치
-        run: pnpm install --frozen-lockfile --reporter=append-only
+        run: pnpm install --frozen-lockfile --shamefully-hoist --reporter=append-only
 
       - name: Nuxt 빌드
         run: pnpm nuxi build --preset=cloudflare_pages
-        
+
       - name: Cloudflare 퍼블리싱
         run: pnpm wrangler pages deploy dist --project-name=portfolio
