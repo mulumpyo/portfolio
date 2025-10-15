@@ -6,10 +6,13 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     preset: 'cloudflare_pages',
+    rollupConfig: {
+      external: ['node:stream']
+    },
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
-    },
+    }
   },
   runtimeConfig: {
     supabaseUrl: process.env.SUPABASE_URL,
