@@ -22,16 +22,16 @@ jobs:
         with:
           node-version: '22'
 
-      - name: pnpm 설치
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
+      - name: Corepack 활성화
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: 의존성 설치
         run: pnpm install --frozen-lockfile --reporter=append-only
 
       - name: Nuxt 빌드
         run: pnpm nuxi build --preset=cloudflare_pages
-
+        
       - name: Cloudflare 퍼블리싱
         run: pnpm wrangler pages deploy dist --project-name=portfolio
