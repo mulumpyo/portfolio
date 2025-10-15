@@ -13,6 +13,8 @@ onMounted(async () => {
 
 <template>
   <div>
+    <h3>Test</h3>
+
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
 
