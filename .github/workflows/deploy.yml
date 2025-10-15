@@ -22,14 +22,6 @@ jobs:
         with:
           version: 9
 
-      - name: 캐시 (pnpm store)
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Node.js 설치
         uses: actions/setup-node@v3
         with:
@@ -37,7 +29,7 @@ jobs:
           cache: 'pnpm'
 
       - name: 의존성 설치
-        run: pnpm install --frozen-lockfile --prefer-frozen-lockfile --reporter=append-only
+        run: pnpm install --frozen-lockfile --reporter=append-only
 
       - name: Nuxt 빌드
         run: pnpm nuxi build --preset=cloudflare_pages
